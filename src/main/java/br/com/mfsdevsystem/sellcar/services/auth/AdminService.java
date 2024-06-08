@@ -12,7 +12,7 @@ import jakarta.annotation.PostConstruct;
 
 
 @Service
-public class AdminService {
+public class AdminService implements AuthService {
 	
 	private final UserRepository userRepository;
 	
@@ -35,6 +35,14 @@ public class AdminService {
 		} else {
 			System.out.println("Admin account already exist!");
 		}
+	}
+
+
+	@Override
+	public Boolean hasUserWithEmail(String email) {
+		
+		return userRepository.findByEmail(email).isPresent();
+		
 	}
 
 }
