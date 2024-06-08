@@ -30,6 +30,7 @@ public class User implements Serializable, UserDetails {
 	private String email;
 	private String phone;
 	private String password;
+	
 	private UserRole userRole;
 
 	public User() {
@@ -92,8 +93,15 @@ public class User implements Serializable, UserDetails {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
+	public UserRole getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
